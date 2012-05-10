@@ -1,10 +1,21 @@
-<table>
-    <tr>
-        <td>Id</td><td>Email</td><td>Name</td>
-    </tr>
-    <% $.each(user_set,function(i,user){ %>
-    <tr>
-        <td><%= user._id %></td><td><%= user.email %></td><td><%= user.name %></td>
-    </tr>
-    <% }); %>
-</table>
+<div>
+	<form class="form-horizontal well" action="#/user_processing" method="POST" >
+		<legend>Nuevo Usuario</legend>
+		<div class="control-group"><label class="control-label">Email</label><div class="controls"><input type="text" name="email" /></div></div>
+		<div class="control-group"><label class="control-label">Name</label><div class="controls"><input type="text" name="name" /></div></div>
+		<div class="form-actions"><button class="btn btn-primary" type="submit" value="Submit"><i class="icon-plus icon-white"></i> Agregar</button></div>
+    </form>
+    
+    <legend>Usuarios</legend>
+    
+	<table class="table">
+		<thead>
+	    	<tr><th>Id</th><th>Email</th><th>Name</th></tr>
+	    </thead>
+	    <tbody>
+    	<% $.each(user_set,function(i,user){ %>
+	    <tr><td><%= user._id %></td><td><%= user.email %></td><td><%= user.name %></td></tr>
+	    <% }); %>
+	    </tbody>
+	</table>
+</div>

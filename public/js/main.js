@@ -11,8 +11,10 @@
 		// ACTIONS
 		
 		this.get('#/', function(context) {
-			this.partial('/tmpl/example.template');
+			this.redirect('#/event_list');
 		});
+		
+		// ACTIONS: EVENTS
 		
 		this.get('#/event_list', function(context) {
             this.rest().get('/eventos/','event_set').then(function() {
@@ -26,19 +28,17 @@
             })
 		});
 		
+		// ACTIONS: USERS
+		
         this.get('#/user_list', function(context) {
             this.rest().get('/users/','user_set').then(function() {
                 this.partial('/tmpl/user_list.template')
             })
 		});
-		
-        this.get('#/user_form', function(context) {
-            this.partial('/tmpl/user_form.template')
-		});
 
         this.post('#/user_processing',function(context) {
             this.rest().post('/users/',this.params.toHash()).then(function() {
-                this.partial('/tmpl/user_form.template')
+            	this.redirect('#/user_list');
             })
 		});
 
