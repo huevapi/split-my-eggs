@@ -34,6 +34,7 @@ app.configure('production', function(){
 // Models
 
 global.Event=new require('./models/event')(mongoose);
+global.User=new require('./models/user')(mongoose);
 
 // How to use: Example 
 // =======
