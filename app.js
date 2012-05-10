@@ -33,7 +33,7 @@ app.configure('production', function(){
 
 // Models
 
-global.Event=new require('./models/event')(mongoose);
+global.Evento = new require('./models/evento')(mongoose);
 
 // How to use: Example 
 // =======
@@ -50,7 +50,8 @@ global.Event=new require('./models/event')(mongoose);
 // Routes
 
 app.get('/', routes.index);
-app.post('/evento', evento.post)
+app.post('/eventos', evento.post);
+app.get('/eventos', evento.get);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){

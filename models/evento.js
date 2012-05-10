@@ -1,4 +1,4 @@
-module.exports=function Evento(mongoose) {
+module.exports = function Evento(mongoose) {
 	var Schema = mongoose.Schema
 	  , ObjectId = Schema.ObjectId;
 	var schema = new Schema({
