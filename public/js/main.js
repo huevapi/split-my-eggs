@@ -46,7 +46,7 @@
             this.balance_set = {};
             var rest = this.rest().get('/users/','user_set');
             if (this.params.email){
-                rest.get('/users/'+this.params.email+'/balance/','balance_set');
+                rest.get('/users/'+this.params.email+'/balances/','balance_set');
             }
             rest.then(function() {
                     this.partial('/tmpl/balance.template');});
