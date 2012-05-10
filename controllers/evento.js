@@ -21,6 +21,7 @@ exports.post = function(req, res) {
 
 exports.get = function(req, res) {
     console.log("Getting eventos");
-    var eventos = Evento.find();
-    res.send(eventos);
+    var eventos = Evento.find({}, function(err, eventos) {
+       res.end(JSON.stringify(eventos)); 
+    });
 }
