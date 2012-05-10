@@ -30,6 +30,22 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
+// Models
+
+global.Event=new require('./models/event')(mongoose);
+
+// How to use: Example 
+// =======
+// var event = new Event();
+// event.version=12345;
+// event.save(function(err) {
+// });
+// Event.find({}, function(err, docs) {
+	// console.log(docs);
+	// process.exit();
+// });
+
+
 // Routes
 
 app.get('/', routes.index);
