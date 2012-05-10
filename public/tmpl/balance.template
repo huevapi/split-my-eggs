@@ -1,0 +1,27 @@
+<div class="form">
+    <div>
+    <form action="#/balance" method="GET" >
+        <select name="email">
+    <% $.each(user_set,function(i,user){ %>
+            <option value="<%= user.email %>"><%= user.name %></option>
+    <% }); %>
+        </select>
+        <input type="submit" value="Submit" />
+    </form>
+    </div>
+</div>
+<div>
+<table>
+<tr>
+<td>Usuario</td><td>Balance</td>
+</tr>
+
+    <% $.each(balance_set,function(i,balance){ %>
+    <tr>
+        <td><%= i %></td><td><%= balance %></td>
+    </tr>
+    <% }); %>
+
+</table>
+
+</div>
