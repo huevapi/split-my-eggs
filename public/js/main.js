@@ -20,13 +20,9 @@
             })
 		});
 		
-        this.get('#/event_form', function(context) {
-            this.partial('/tmpl/event_form.template')
-		});
-
-        this.post('#/event_processing',function(context) {
+		this.post('#/event_processing',function(context) {
             this.rest().post('/eventos/',this.params.toHash()).then(function() {
-                this.partial('/tmpl/event_form.template')
+            	this.redirect('#/event_list');
             })
 		});
 

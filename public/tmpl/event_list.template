@@ -1,10 +1,25 @@
-<table>
-    <tr>
-        <td>Id</td><td>Type</td><td>Version</td><td>Label</td><td>Data</td>
-    </tr>
-    <% $.each(event_set,function(i,event){ %>
-    <tr>
-        <td><%= event._id %></td><td><%= event.type %></td><td><%= event.version %></td><td><%= event.label %></td><td><%= event.data %></td>
-    </tr>
-    <% }); %>
-</table>
+<div>
+	<form class="form-horizontal well" action="#/event_processing" method="POST" >
+		<legend>Nuevo Evento</legend>
+		<div class="control-group"><label class="control-label">Tipo</label><div class="controls"><input type="text" name="type" /></div></div>
+		<div class="control-group"><label class="control-label">Version</label><div class="controls"><input type="text" name="version" /></div></div>
+		<div class="control-group"><label class="control-label">Label</label><div class="controls"><input type="text" name="label" /></div></div>
+		<div class="control-group"><label class="control-label">Data</label><div class="controls"><input type="text" name="data" /></div></div>
+		<div class="form-actions"><button class="btn btn-primary" type="submit" value="Submit"><i class="icon-plus icon-white"></i> Agregar</button></div>
+    </form>
+    
+    <legend>Últimos eventos</legend>
+    
+	<table class="table">
+		<thead>
+	    	<tr><th>Id</th><th>Type</th><th>Version</th><th>Label</th><th>Data</th></tr>
+	    </thead>
+	    <tbody>
+	    <% $.each(event_set,function(i,event){ %>
+	    <tr>
+	        <td><%= event._id %></td><td><%= event.type %></td><td><%= event.version %></td><td><%= event.label %></td><td><%= event.data %></td>
+	    </tr>
+	    <% }); %>
+	    </tbody>
+	</table>
+</div>
