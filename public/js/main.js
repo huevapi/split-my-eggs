@@ -14,7 +14,23 @@
 			this.partial('/tmpl/example.template');
 		});
 		
-		this.get('#/logout', function(context) {
+		this.get('#/event_list', function(context) {
+            this.rest().get('/eventos/','event_set').then(function() {
+                this.partial('/tmpl/event_list.template')
+            })
+		});
+		
+        this.get('#/event_form', function(context) {
+            this.partial('/tmpl/event_form.template')
+		});
+
+        this.post('#/event_processing',function(context) {
+            this.rest().post('/eventos/',this.params.toHash()).then(function() {
+                this.partial('/tmpl/event_form.template')
+            })
+		});
+
+        this.get('#/logout', function(context) {
 //			this.rest().del(model.sessions('current')).then(function() {
 //				document.location.pathname = '/index.html';
 //			});

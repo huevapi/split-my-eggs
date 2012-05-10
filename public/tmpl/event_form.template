@@ -1,0 +1,11 @@
+<div class="form">
+    <div>
+    <form action="#/event_processing" method="POST" >
+type <input type="text" name="type" /> <br>
+Version <input type="text" name="version" /> <br>
+Label <input type="text" name="label" /> <br>
+Data <input type="textarea" name="data" /> <br>
+        <input type="submit" value="Submit" />
+    </form>
+    </div>
+</div>

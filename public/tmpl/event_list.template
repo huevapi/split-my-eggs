@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <td>Id</td><td>Type</td><td>Version</td><td>Label</td><td>Data</td>
+    </tr>
+    <% $.each(event_set,function(i,event){ %>
+    <tr>
+        <td><%= event._id %></td><td><%= event.type %></td><td><%= event.version %></td><td><%= event.label %></td><td><%= event.data %></td>
+    </tr>
+    <% }); %>
+</table>
