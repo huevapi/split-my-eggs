@@ -5,7 +5,8 @@
 
 var express = require('express')
 , routes = require('./routes')
-, mongoose = require('mongoose');
+, mongoose = require('mongoose')
+, evento = require('./controllers/evento');
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
 
@@ -33,6 +34,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
+app.post('/evento', evento.post)
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
