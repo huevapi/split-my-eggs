@@ -1,0 +1,9 @@
+<div class="form">
+    <div>
+    <form action="#/user_processing" method="POST" >
+email <input type="text" name="email" /> <br>
+name <input type="text" name="name" /> <br>
+        <input type="submit" value="Submit" />
+    </form>
+    </div>
+</div>
