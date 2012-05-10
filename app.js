@@ -6,7 +6,9 @@
 var express = require('express')
 , routes = require('./routes')
 , mongoose = require('mongoose')
-, evento = require('./controllers/evento');
+, evento = require('./controllers/evento')
+, user = require('./controllers/user')
+, move = require('./controllers/move');
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
 
@@ -55,6 +57,10 @@ global.Move = new require('./models/move')(mongoose);
 app.get('/', routes.index);
 app.post('/eventos', evento.post);
 app.get('/eventos', evento.get);
+app.post('/moves', move.post);
+app.get('/moves', move.get);
+app.post('/users', user.post);
+app.get('/users', user.get);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){

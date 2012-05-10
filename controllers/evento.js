@@ -1,7 +1,3 @@
-var mongoose = require('mongoose');
-
-//var Evento = mongoose.model('Evento');
-
 exports.post = function(req, res) {
     console.log('posting evento');
     var evento = new Evento();
