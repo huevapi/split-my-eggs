@@ -33,7 +33,10 @@ app.configure('production', function(){
 
 // Models
 
+
 global.Evento = new require('./models/evento')(mongoose);
+global.User = new require('./models/user')(mongoose);
+global.Move = new require('./models/move')(mongoose);
 
 // How to use: Example 
 // =======

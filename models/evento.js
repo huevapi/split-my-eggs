@@ -1,4 +1,5 @@
 module.exports = function Evento(mongoose) {
+
 	var Schema = mongoose.Schema
 	  , ObjectId = Schema.ObjectId;
 	var schema = new Schema({
@@ -9,6 +10,6 @@ module.exports = function Evento(mongoose) {
   , created_at	:  { type: Date }
   , updated_at	:  { type: Date }
 	});
-	var model=mongoose.model('Evento', schema);
+	var model=mongoose.model('Event', schema);
 	return model;
 };
