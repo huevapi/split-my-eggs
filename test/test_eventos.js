@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var should = require('should');
 var app = require('../app.js');
 
-suite('Api testing', function(){
+suite('Eventos resource', function(){
 	setup(function(){
 	});
 	teardown(function(done){
@@ -28,28 +28,6 @@ suite('Api testing', function(){
 		}, function(error, response, body){
 			if (!error) {
    				response.statusCode.should.equal(204);
-   				done();
-   			}
-		});
-	});
-	test('test create user', function(done){
-		request.post({
-			url:'http://localhost:3000/users',
-			body: "name=Pedro&email=pedro@spliter.com",
-			headers: {'content-type' : 'application/x-www-form-urlencoded'}
-		}, function(error, response, body){
-			if (!error) {
-   				response.statusCode.should.equal(204);
-   				done();
-   			}
-		});
-	});
-	test('test get users', function(done){
-		request.get({
-			url:'http://localhost:3000/users',
-		}, function(error, response, body){
-			if (!error) {
-   				response.statusCode.should.equal(200);
    				done();
    			}
 		});
