@@ -17,3 +17,8 @@ exports.post = function(req, res) {
         
     });
 };
+
+exports.get = function(req, res) {
+    var eventos = Evento.find();
+    res.send(eventos);
+}
