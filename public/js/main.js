@@ -29,6 +29,22 @@
                 this.partial('/tmpl/event_form.template')
             })
 		});
+		
+        this.get('#/user_list', function(context) {
+            this.rest().get('/users/','user_set').then(function() {
+                this.partial('/tmpl/user_list.template')
+            })
+		});
+		
+        this.get('#/user_form', function(context) {
+            this.partial('/tmpl/user_form.template')
+		});
+
+        this.post('#/user_processing',function(context) {
+            this.rest().post('/users/',this.params.toHash()).then(function() {
+                this.partial('/tmpl/user_form.template')
+            })
+		});
 
         this.get('#/logout', function(context) {
 //			this.rest().del(model.sessions('current')).then(function() {
