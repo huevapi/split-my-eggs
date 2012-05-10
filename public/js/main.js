@@ -52,6 +52,22 @@
                     this.partial('/tmpl/balance.template');});
         });
 
+		// ACTIONS: MOVES
+		
+		 this.get('#/move_list', function(context) {
+            this.rest().get('/moves','move_set').get('/users/','user_set').get('/eventos/','event_set').then(function() {
+                this.partial('/tmpl/move_list.template')
+            })
+		});
+		
+		this.post('#/move_processing',function(context) {
+            this.rest().post('/moves/',this.params.toHash()).then(function() {
+            	this.redirect('#/move_list');
+            })
+		});
+		
+
+
         this.get('#/logout', function(context) {
 //			this.rest().del(model.sessions('current')).then(function() {
 //				document.location.pathname = '/index.html';

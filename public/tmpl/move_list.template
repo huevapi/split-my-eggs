@@ -1,0 +1,80 @@
+<div>
+	<form class="form-horizontal well" action="#/move_processing" method="POST" >
+		<legend>Nuevo Movimiento</legend>
+		<div class="control-group">
+			<label class="control-label">Evento</label>
+			<div class="controls">
+				<select name="evento">
+		    	<% $.each(event_set,function(i,event){ %>
+			    	<option value="<%= event._id %>"><%= event.label %></option>
+			    <% }); %>
+		        </select>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">From</label>
+			<div class="controls">
+				<select name="from">
+		    	<% $.each(user_set,function(i,user){ %>
+			    	<option value="<%= user._id %>"><%= user.name %></option>
+			    <% }); %>
+		        </select>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">To</label>
+			<div class="controls">
+				<select name="to">
+		    	<% $.each(user_set,function(i,user){ %>
+			    	<option value="<%= user._id %>"><%= user.name %></option>
+			    <% }); %>
+		        </select>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Amount</label>
+			<div class="controls"><input type="text" name="amount" /></div>
+		</div>
+		<div class="form-actions">
+			<button class="btn btn-primary" type="submit" value="Submit">
+			<i class="icon-plus icon-white"></i> Agregar</button>
+		</div>
+    </form>
+    
+    <legend>Movimientos</legend>
+  
+	<table class="table">
+		<thead>
+	    	<tr><th>From</th><th>To</th><th>Amount</th><th>Evento</th></tr>
+	    </thead>
+	    <tbody>
+    	<% $.each(move_set,function(i,move){ %>
+	    <tr>
+			<td>
+				<% $.each(user_set,function(i,user){ 
+					if(user._id==move.from){%>
+			    	<%= user.name %>
+					<% return false; } %>
+			    <% }); %>
+			</td>
+			<td>
+				<% $.each(user_set,function(i,user){ 
+					if(user._id==move.to){%>
+			    	<%= user.name %>
+					<% return false; } %>
+			    <% }); %>
+			</td>
+			<td><%= move.amount %></td>
+			<td>
+				<% $.each(event_set,function(i,event){ 
+					if(event._id==move.evento){%>
+			    	<%= event.label %>
+					<% return false; } %>
+			    <% }); %>
+			</td>
+		</tr>
+	    <% }); %>
+	    </tbody>
+	</table>
+
+</div>

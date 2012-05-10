@@ -1,7 +1,8 @@
 exports.post = function(req, res) {
     console.log('posting moves');
     var move = new Move();
-    move.to = req.body.to;
+    move.evento = req.body.evento;
+	move.to = req.body.to;
     move.from = req.body.from;
     move.amount = req.body.amount;
     move.save( function(err) {
