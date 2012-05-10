@@ -8,6 +8,7 @@ var express = require('express')
 , mongoose = require('mongoose')
 , evento = require('./controllers/evento')
 , user = require('./controllers/user')
+, balance = require('./controllers/balance')
 , move = require('./controllers/move');
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
@@ -61,6 +62,7 @@ app.post('/moves', move.post);
 app.get('/moves', move.get);
 app.post('/users', user.post);
 app.get('/users', user.get);
+app.get('/users/:email/balances', balance.get);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){

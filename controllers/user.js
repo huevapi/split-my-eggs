@@ -7,14 +7,14 @@ exports.post = function(req, res) {
         if(!err) {
             res.send();
         } else {
-            res.send(err, 500);
+            res.send(err, 403);
         }
     });
 };
 
 exports.get = function(req, res) {
     console.log("Getting users");
-    var eventos = User.find({}, function(err, docs) {
+    User.find({}, function(err, docs) {
        res.end(JSON.stringify(docs)); 
     });
 }
