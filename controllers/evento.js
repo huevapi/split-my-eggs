@@ -9,7 +9,7 @@ exports.post = function(req, res) {
         if(!err) {
             res.send();
         } else {
-            res.send(err, 500);
+            res.send(err, 403);
         }
         
     });
@@ -17,7 +17,7 @@ exports.post = function(req, res) {
 
 exports.get = function(req, res) {
     console.log("Getting eventos");
-    var eventos = Evento.find({}, function(err, eventos) {
+    Evento.find({}, function(err, eventos) {
        res.end(JSON.stringify(eventos)); 
     });
 }

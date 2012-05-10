@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <td>Id</td><td>Email</td><td>Name</td>
+    </tr>
+    <% $.each(user_set,function(i,user){ %>
+    <tr>
+        <td><%= user._id %></td><td><%= user.email %></td><td><%= user.name %></td>
+    </tr>
+    <% }); %>
+</table>
