@@ -11,7 +11,7 @@ var express = require('express')
 , balance = require('./controllers/balance')
 , move = require('./controllers/move');
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/split-my-eggs");
 
 var app = module.exports = express.createServer();
 

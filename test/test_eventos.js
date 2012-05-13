@@ -5,6 +5,9 @@ var app = require('../app.js');
 
 suite('Eventos resource', function(){
 	setup(function(){
+		mongoose.connection.close(function(){
+			mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
+		});
 	});
 	teardown(function(done){
 		Evento.remove({},function(err){
